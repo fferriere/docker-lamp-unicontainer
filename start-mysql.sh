@@ -25,6 +25,8 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
     GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$ROOT_PASS' WITH GRANT OPTION;
     GRANT ALL PRIVILEGES ON user.* TO '$USER_NAME'@'%' IDENTIFIED BY '$USER_PASS';
 EOF
+
+    mysqladmin shutdown
 fi
 
 /usr/bin/mysqld_safe
