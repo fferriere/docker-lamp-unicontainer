@@ -8,7 +8,7 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
     ROOT_PASS=root
 
     # database name
-    DBNAME=database
+    DBNAME=dbname
     # user and passwd user can connect at database
     USER_NAME=user
     USER_PASS=user
@@ -23,7 +23,7 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
     # add root@% with password, root@localhost keep no passwd
     mysql -u $ROOT_NAME <<EOF
     GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$ROOT_PASS' WITH GRANT OPTION;
-    GRANT ALL PRIVILEGES ON user.* TO '$USER_NAME'@'%' IDENTIFIED BY '$USER_PASS';
+    GRANT ALL PRIVILEGES ON $DBNAME.* TO '$USER_NAME'@'%' IDENTIFIED BY '$USER_PASS';
 EOF
 
     mysqladmin shutdown
