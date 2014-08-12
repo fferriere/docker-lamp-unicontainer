@@ -23,7 +23,7 @@ ADD xdebug.conf /xdebug.conf
 RUN cat /xdebug.conf >> /etc/php5/apache2/conf.d/20-xdebug.ini
 
 # install minimal package for symfony2 and use composer
-RUN apt-get install php5-intl php5-curl git --no-install-recommends
+RUN apt-get install -y php5-intl php5-curl git --no-install-recommends
 
 VOLUME ["/var/www/", "/var/log/supervisor", "/var/lib/mysql"]
 
