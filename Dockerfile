@@ -19,6 +19,7 @@ ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN useradd --uid 1000 --groups www-data user
 RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 
+RUN apt-get install -y php5-xdebug
 ADD xdebug.conf /xdebug.conf
 RUN cat /xdebug.conf >> /etc/php5/apache2/conf.d/20-xdebug.ini
 
